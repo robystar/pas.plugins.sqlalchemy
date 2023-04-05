@@ -67,13 +67,13 @@ def addSqlalchemyPlugin(self, id, title="", user_model=None,
 
 
 def safeencode(v):
-    if isinstance(v, unicode):
+    if isinstance(v, str):
         return v.encode('utf-8')
     return v
 
 
 def safedecode(v):
-    if isinstance(v, str):
+    if isinstance(v, bytes):
         return v.decode('utf-8')
     return v
 
