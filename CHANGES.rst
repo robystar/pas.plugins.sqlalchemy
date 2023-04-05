@@ -26,6 +26,9 @@ Changelog
 - properly plugin initialization, with custom icon
   [keul]
 
+- Adapt code to work with plone 5.2
+  [lucabel]
+
 
 0.4.2 (2017-10-23)
 ------------------

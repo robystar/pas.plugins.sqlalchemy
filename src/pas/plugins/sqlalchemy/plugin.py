@@ -3,7 +3,8 @@ from AccessControl import ClassSecurityInfo
 from AccessControl.SecurityManagement import getSecurityManager
 from Acquisition import aq_get
 from DateTime import DateTime
-from Globals import InitializeClass
+# from Globals import InitializeClass
+from AccessControl.class_init import InitializeClass
 from OFS.Cache import Cacheable
 from pas.plugins.sqlalchemy import model
 from Products.CMFCore.utils import getToolByName
