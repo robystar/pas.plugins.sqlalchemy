@@ -393,6 +393,20 @@ class Plugin(BasePlugin, Cacheable):
             self.user_class, exact_match, sort_by, max_results, kw
         )
 
+
+    @security.private
+    @graceful_recovery()
+    def updateUser(self, user_id, login):  # raises keyerror
+        session = Session()
+        query = session.query(self.user_class).filter_by(zope_id=user_id)
+        user = query.first()
+        if user is None:
+            raise KeyError(user_id)
+        else:
+            user.set_login(login)
+            return True
+
+
     #
     # IUserAdderPlugin implementation
     #

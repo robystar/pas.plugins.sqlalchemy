@@ -40,6 +40,7 @@ import random
 import string
 
 Base = declarative_base()
+#Base.metadata.schema = 'acl'
 
 group_member_table = Table('group_members', Base.metadata,
                            Column('group_id', Integer, ForeignKey(
@@ -156,6 +157,9 @@ class User(Principal):
     def set_password(self, password):
         self._salt = self.generate_salt()
         self._password = self.encrypt(password)
+
+    def set_login(self, login):
+        self.login = login
 
     def check_password(self, password):
         return self.encrypt(password) == self.password
