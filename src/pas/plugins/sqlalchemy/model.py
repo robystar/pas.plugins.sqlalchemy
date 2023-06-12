@@ -40,7 +40,7 @@ import random
 import string
 
 Base = declarative_base()
-#Base.metadata.schema = 'acl'
+Base.metadata.schema = 'acl'
 
 group_member_table = Table('group_members', Base.metadata,
                            Column('group_id', Integer, ForeignKey(
